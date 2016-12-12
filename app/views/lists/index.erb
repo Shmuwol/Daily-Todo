@@ -1,1 +1,8 @@
 <h1>Todo Lists</h1>
+
+<% @lists.each do |list| %>
+  <%= list.name %>
+  <ul>
+    <li><%= list.name %></li>
+  </ul>
+<% end %>
