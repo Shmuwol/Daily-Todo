@@ -5,4 +5,9 @@ class ListsController < ApplicationController
     erb :'lists/index'
   end
 
+  get '/lists/:id' do
+    @list = List.find_by(params[:id])
+    erb :'lists/show'
+  end
+
 end
