@@ -3,7 +3,7 @@
 <h3>To Do:</h3>
 
 <ul>
-  <% @list.list_items do |item| %>
+  <% @list.list_items.each do |item| %>
     <li><%= item.name %> - complete: <%= item.complete %></li>
   <% end %>
 </ul>
