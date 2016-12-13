@@ -13,4 +13,14 @@ class ListsController < ApplicationController
     @list = List.find_by(params[:id])
     erb :'lists/show'
   end
+
+  post '/lists' do
+    list = List.create(title: params[:title])
+    if list.save
+      redirect to '/lists'
+    else
+      redirect to '/lists/new'
+    end
+  end
+
 end
