@@ -10,4 +10,8 @@ class ListsController < ApplicationController
     erb :'lists/show'
   end
 
+  get '/lists/new' do
+    erb :'lists/new'
+  end
+
 end
