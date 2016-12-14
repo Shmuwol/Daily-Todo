@@ -38,4 +38,10 @@ class ListsController < ApplicationController
     end
   end
 
+  delete '/lists/:id/delete' do
+    list = List.find_by_id(params[:id])
+    list.destroy
+    redirect to '/lists'
+  end
+
 end
