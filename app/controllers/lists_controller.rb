@@ -23,4 +23,11 @@ class ListsController < ApplicationController
     end
   end
 
+  get '/lists/:id/edit' do
+    @list = List.find_by_id(params[:id])
+    erb :'lists/edit_list'
+  end
+
+  
+
 end
