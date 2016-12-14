@@ -1,1 +1,15 @@
+<h2>Edit List Title</h2>
 
+<form action="/lists/<%= @list.id %>"
+      method="post">
+      <input id="hidden"
+             type="hidden"
+             name="_method"
+             value="PATCH">
+      <input type="text"
+             name="title"
+             value="<%= @list.title %>">
+      <input type="submit"
+             value="Save Title">
+
+</form>
