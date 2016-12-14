@@ -15,7 +15,7 @@ class ListsController < ApplicationController
   end
 
   post '/lists' do
-    list = List.create(title: params[:title])
+    list = List.create(params)
     if list.save
       redirect to '/lists'
     else
@@ -27,7 +27,5 @@ class ListsController < ApplicationController
     @list = List.find_by_id(params[:id])
     erb :'lists/edit_list'
   end
-
   
-
 end
