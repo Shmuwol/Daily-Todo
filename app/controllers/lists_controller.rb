@@ -27,5 +27,15 @@ class ListsController < ApplicationController
     @list = List.find_by_id(params[:id])
     erb :'lists/edit_list'
   end
-  
+
+  patch '/lists/:id' do
+    @list = List.find_by_id(params[:id])
+    @list.update(title: params[:title])
+    if @list.save
+      redirect to '/lists'
+    else
+      redirect to "/lists/#{@list.id}"
+    end
+  end
+
 end
