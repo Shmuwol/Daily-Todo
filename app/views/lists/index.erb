@@ -4,14 +4,18 @@
   <% @lists.each do |list| %>
     <li> <a href="/lists/<%= list.id %>"><%= list.title %></a></li>
     <form method="POST"
-          action="/lists/<%= list.id %>/delete"
-          method="post">
+          action="/lists/<%= list.id %>/delete">
           <input id="hidden"
                  type="hidden"
                  name="_method"
                  value="DELETE">
           <input type="submit"
                  value="Delete">
+          <input type="submit"
+                 formmethod="GET"
+                 formaction="/lists/<%= list.id %>/edit"
+                 value="Edit">
     </form>
+
   <% end %>
 </ul>
