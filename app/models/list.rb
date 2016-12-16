@@ -1,4 +1,4 @@
 class List < ActiveRecord::Base
-  has_many :list_items
+  has_many :tasks
   validates_presence_of :title
 end
