@@ -5,7 +5,7 @@
 <ul>
   <% @lists.each do |list| %>
     <li> <a href="/lists/<%= list.id %>"><%= list.title %></a></li>
-    <form onsubmit="return confirm('Are you sure?');"method="POST"
+    <form onsubmit="return confirm('Delete List?');"method="POST"
           action="/lists/<%= list.id %>/delete">
           <input id="hidden"
                  type="hidden"
