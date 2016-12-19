@@ -1,5 +1,7 @@
 <h1>Todo Lists</h1>
 
+<p><a href="/list/new">Add List</a></p>
+
 <ul>
   <% @lists.each do |list| %>
     <li> <a href="/lists/<%= list.id %>"><%= list.title %></a></li>
