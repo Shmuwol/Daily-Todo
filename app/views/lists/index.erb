@@ -1,11 +1,11 @@
 <h1>Todo Lists</h1>
 
-<p><a href="/list/new">Add List</a></p>
+<p><a href="/lists/new">Add List</a></p>
 
 <ul>
   <% @lists.each do |list| %>
     <li> <a href="/lists/<%= list.id %>"><%= list.title %></a></li>
-    <form method="POST"
+    <form onsubmit="return confirm('Are you sure?');"method="POST"
           action="/lists/<%= list.id %>/delete">
           <input id="hidden"
                  type="hidden"
