@@ -12,9 +12,10 @@
           <input type="submit"
                  value="Delete">
           <input type="submit"
-                 formmethod="GET"
-                 formaction="/lists/<%= list.id %>/edit"
+                 form="edit"
                  value="Edit">
+    </form>
+    <form id="edit" method="GET" action="/lists/<%= list.id %>/edit">
     </form>
 
   <% end %>
