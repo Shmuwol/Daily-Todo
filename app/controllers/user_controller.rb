@@ -5,8 +5,9 @@ class UsersController < ApplicationController
   end
 
   post '/users' do
-    user = User.create(params)
+    user = User.new(params)
     if user.save
+      session[:id] = user.id
       redirect to '/lists'
     else
       redirect to '/sign_up'
