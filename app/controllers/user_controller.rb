@@ -19,7 +19,17 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    erb :'users/login'
+    redirect to "/lists" if logged_in?
+
+    user = User.find_by(username: params[:username])
+
+    if user && user.authenticate(params[:password])
+      session[:id] = user.id
+      redirect to '/lists'
+    else
+      flash[:notice] = "Please provide a valid Username and Password"
+      erb :'users/login'
+    end
   end
 
   get '/logout' do
