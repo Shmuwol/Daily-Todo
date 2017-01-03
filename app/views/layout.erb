@@ -24,7 +24,9 @@
 
     <footer class="branding">
       <small>&copy; <%= Date.current.year %> <strong>DailyTodo</strong></small>
-      <small> - logged in  as <strong><%=current_user.username  %></strong></small>
+      <% if current_user %>
+        <small> - logged in  as <strong><%=current_user.username  %></strong></small>
+      <% end %>
     </footer>
   </div>
 
