@@ -1,9 +1,12 @@
 <h1><%= @list.title %></h1>
+<% if !@list.tasks.empty? %>
+  <h3>To Do:</h3>
 
-<h3>To Do:</h3>
-
-<ul>
-  <% @list.tasks.each do |task| %>
-    <li><%= task.name %> - complete: <%= task.complete %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @list.tasks.each do |task| %>
+      <li><%= task.name %> - complete: <%= task.complete %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <button type="button" name="">add task</button>
+<% end %>
