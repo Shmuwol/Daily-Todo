@@ -15,6 +15,14 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get "/welcome" do
+    if logged_in?
+      redirect to '/lists'
+    else
+      erb :welcome
+    end
+  end
+
   helpers do
     def redirect_if_not_logged_in
       if !logged_in?
