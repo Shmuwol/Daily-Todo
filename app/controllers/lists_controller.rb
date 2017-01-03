@@ -20,7 +20,7 @@ class ListsController < ApplicationController
 
   post '/lists' do
     redirect_if_not_logged_in
-    list = List.create(params)
+    list = current_user.lists.create(params)
     if list.save
       redirect to '/lists'
     else
