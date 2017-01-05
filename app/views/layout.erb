@@ -26,6 +26,8 @@
       <small>&copy; <%= Date.current.year %> <strong>DailyTodo</strong></small>
       <% if current_user %>
         <small> - logged in  as <strong><%=current_user.username  %></strong></small>
+        <small> | <a href="/logout">logout</a></small>
+
       <% end %>
     </footer>
   </div>
