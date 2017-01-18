@@ -7,4 +7,9 @@
       <li><a href="#"></a> <%= task.name %> - complete: <%= task.complete %></li>
     <% end %>
 <% end %>
-</ul>
+</ul><br>
+
+<form action="/lists/<%= @list.id %>/tasks"  method="POST">
+<input type="text" name="name" placeholder="add task">
+  <input type="submit" value="Add Task">
+</form>
