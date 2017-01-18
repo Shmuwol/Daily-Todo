@@ -1,0 +1,10 @@
+<h1>List: <%= @list.title %></h1>
+<% if !@tasks.empty? %>
+  <h3>Tasks</h3>
+
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><a href="#"></a> <%= task.name %> - complete: <%= task.complete %></li>
+    <% end %>
+<% end %>
+</ul>
