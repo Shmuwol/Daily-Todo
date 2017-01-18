@@ -19,4 +19,8 @@ class TasksController < ApplicationController
     end
   end
 
+  get '/tasks' do
+    erb :'tasks/show_all'
+  end
+
 end
