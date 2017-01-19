@@ -20,6 +20,7 @@ class TasksController < ApplicationController
   end
 
   get '/tasks' do
+    @tasks = current_user.tasks
     erb :'tasks/show_all'
   end
 
