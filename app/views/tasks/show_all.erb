@@ -1,0 +1,10 @@
+<h1>All Tasks</h1>
+
+<ul>
+  <% @tasks.each.with_index(1) do |task, index| %>
+    <li>
+      (<%= index %>)
+      <%= task.name %>
+    </li>
+  <% end %>
+</ul>
