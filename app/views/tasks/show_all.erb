@@ -5,7 +5,7 @@
     <li>
       (<%= index %>)
       <%= task.name %>
-      <small>[<%= task.list.title %>]</small>
+      <a href="/lists/<%= task.list_id %>"><small>[<%= task.list.title %>]</small></a>
     </li>
   <% end %>
 </ul>
