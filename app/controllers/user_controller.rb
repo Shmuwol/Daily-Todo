@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       session[:id] = user.id
       redirect to '/lists'
     else
+      flash[:notice] = "Invalid Email!" if !user.authenticate(params[:email])
       redirect to '/sign_up'
     end
   end
