@@ -17,7 +17,7 @@
   <div class="wrapper">
 
     <% if flash.has?(:notice) %>
-      <h3 class="notice"><%= flash[:notice] %></h3>
+      <h3 class="notice" style="color :red; "><%= flash[:notice] %></h3>
     <% end %>
 
       <%= yield %>
