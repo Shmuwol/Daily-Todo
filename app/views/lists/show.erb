@@ -1,12 +1,16 @@
 <h1><%= @list.title %></h1>
 <% if !@list.tasks.empty? %>
-  <h3>To Do:</h3>
+<h3>To Do:</h3>
 
-  <ul>
+<ul>
     <% @list.tasks.each do |task| %>
-      <li><%= task.name %> - complete: <%= task.complete %></li>
+    <li>
+        <%= "[√]" if task.complete  %>
+        <%= "[X]" if !task.complete  %>
+        <%= task.name%>
+    </li>
     <% end %>
-  </ul>
+</ul>
 <% end %>
 
 <form action="/lists/<%= @list.id %>/tasks"  method="POST">
