@@ -6,6 +6,8 @@
       (<%= index %>)
       <%= task.name %>
       <a href="/lists/<%= task.list_id %>"><small>[<%= task.list.title %>]</small></a>
+      <%= "[√]" if task.complete  %>
+      <%= "[X]" if !task.complete  %>
     </li>
   <% end %>
 </ul>
