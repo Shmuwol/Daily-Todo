@@ -25,4 +25,10 @@ class TasksController < ApplicationController
     erb :'tasks/show_all'
   end
 
+  get '/tasks/:id/edit' do
+    redirect_if_not_logged_in
+    @task = current_user.tasks.find(params[:id])
+    erb :'tasks/edit_task'
+  end
+
 end
