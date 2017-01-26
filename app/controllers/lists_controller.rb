@@ -26,8 +26,10 @@ class ListsController < ApplicationController
     redirect_if_not_logged_in
     list = current_user.lists.build(params)
     if list.save
+      flash[:notice] = "List was successfully saved!"
       redirect to '/lists'
     else
+      flash[:notice] = "Something went wrong, List wasn't saved!"
       redirect to '/lists/new'
     end
   end
