@@ -14,7 +14,12 @@ class ListsController < ApplicationController
   get '/lists/:id' do
     redirect_if_not_logged_in
     @list = current_user.lists.find_by_id(params[:id])
-    erb :'lists/show'
+    if @list
+      erb :'lists/show'
+    else
+      flash[:notice] = "Hands Off! This list does not belong to you!"
+      redirect to '/lists'
+    end
   end
 
   post '/lists' do
