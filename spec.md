@@ -9,14 +9,19 @@ Specs:
   * created `list` and `list_items` models
 - [x] Include at least one has_many relationship (x has_many y e.g. User has_many Posts)
   * list `has_many` list items, list items `belongs_to` a list
-- [ ] Include user accounts
-- [ ] Ensure that users can't modify content created by other users
-- [ ] Include user input validations
-- [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Include user accounts
+  * users can create new accounts, app validates if user is logged_in and redirects to /welcome if not
+- [x] Ensure that users can't modify content created by other users
+  * using the `current_user` helper method whenever a user tried to modify something
+- [x] Include user input validations
+  * using validates_presence_of for input
+  * validates_format_of email using regex for email field
+- [x] Display validation failures to user with error message (example form URL e.g. /posts/new)
+  * using rack-flash
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [x] You have a large number of small Git commits
+- [x] Your commit messages are meaningful
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message
