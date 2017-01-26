@@ -12,6 +12,7 @@ class TasksController < ApplicationController
     @list = current_user.lists.find(params[:id])
     task = @list.tasks.build(name: params[:name])
     if task.save
+      flash[:notice] = "Task was successfully saved!"
       redirect to "/lists/#{@list.id}"
     else
       flash[:notice] = "Something went wrong, task wasn't saved!"
