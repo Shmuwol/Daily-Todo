@@ -43,8 +43,7 @@ class ListsController < ApplicationController
   patch '/lists/:id' do
     redirect_if_not_logged_in
     @list = current_user.lists.find_by_id(params[:id])
-    @list.update(title: params[:title])
-    if @list.save
+    if @list.update(title: params[:title])
       redirect to '/lists'
     else
       redirect to "/lists/#{@list.id}"
@@ -53,9 +52,14 @@ class ListsController < ApplicationController
 
   delete '/lists/:id/delete' do
     redirect_if_not_logged_in
-    list = current_user.lists.find_by_id(params[:id])
-    list.destroy
-    redirect to '/lists'
+    list = List.find_by_id(params[:id])
+    if list.user == current_user
+      list.destroy
+      redirect to '/lists'
+    else
+      flash[:notice] = "Stop touching other peoples stuff"
+      redirect to '/lists'
+    end
   end
 
 end

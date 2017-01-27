@@ -35,12 +35,19 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    def redirect_if_logged_in
+      if logged_in?
+        flash[:notice] = "You are already signed in."
+        redirect to "/"
+      end
+    end
+
     def logged_in?
       !!current_user
     end
 
     def current_user
-      @current_user ||= User.find(session[:id]) if session[:id]
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
   end
 
