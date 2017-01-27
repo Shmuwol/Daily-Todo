@@ -31,4 +31,17 @@ class TasksController < ApplicationController
     erb :'tasks/edit_task'
   end
 
+  patch '/tasks/:id' do
+    redirect_if_not_logged_in
+    @task = current_user.tasks.find(params[:id])
+    @task.update(name: params[:name], complete: params[:complete])
+    if @task.save
+      redirect to '/tasks'
+    else
+      redirect to "/tasks/#{@task.id}"
+    end
+  end
+
+
+
 end
